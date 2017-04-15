@@ -1,11 +1,11 @@
-<!-- @if USE_BABEL -->
+// @ifdef USE_BABEL
 import babel from 'rollup-plugin-babel';
 import babelrc from 'babelrc-rollup';
-<!-- @endif -->
+// @endif
 
-<!-- @if CODE_COVERAGE -->
+// @ifdef CODE_COVERAGE
 import istanbul from 'rollup-plugin-istanbul';
-<!-- @endif -->
+// @endif
 
 
 let pkg = require('./package.json');
