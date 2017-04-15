@@ -14,15 +14,16 @@ let external = Object.keys(pkg.dependencies);
 export default {
   entry: 'lib/index.js',
   plugins: [
-    <!-- @if USE_BABEL -->
+    // @ifdef @if USE_BABEL
       babel(babelrc()),
-    <!-- @endif -->
+    // @endif
 
-    <!-- @if CODE_COVERAGE -->
+    // @ifdef DEBUG
+    // @ifdef CODE_COVERAGE
       istanbul({
           exclude: ['test/**/*', 'node_modules/**/*']
       })
-    <!-- @endif -->
+    // @endif
   ],
   external: external,
   targets: [
