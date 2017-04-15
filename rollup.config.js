@@ -1,9 +1,9 @@
-// @ifdef USE_BABEL
+// @if USE_BABEL
 import babel from 'rollup-plugin-babel';
 import babelrc from 'babelrc-rollup';
 // @endif
 
-// @ifdef CODE_COVERAGE
+// @if CODE_COVERAGE
 import istanbul from 'rollup-plugin-istanbul';
 // @endif
 
@@ -14,11 +14,11 @@ let external = Object.keys(pkg.dependencies);
 export default {
   entry: 'lib/index.js',
   plugins: [
-    // @ifdef USE_BABEL
+    // @if USE_BABEL
       babel(babelrc()),
     // @endif
 
-    // @ifdef CODE_COVERAGE
+    // @if CODE_COVERAGE
       istanbul({
           exclude: ['test/**/*', 'node_modules/**/*']
       })
