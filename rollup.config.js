@@ -18,7 +18,6 @@ export default {
       babel(babelrc()),
     // @endif
 
-    // @ifdef DEBUG
     // @ifdef CODE_COVERAGE
       istanbul({
           exclude: ['test/**/*', 'node_modules/**/*']
