@@ -3,7 +3,7 @@ import babel from 'rollup-plugin-babel';
 import babelrc from 'babelrc-rollup';
 // @endif
 
-// @if CODE_COVERAGE
+// @if ISTANBUL_CODE_COVERAGE
 import istanbul from 'rollup-plugin-istanbul';
 // @endif
 
@@ -18,7 +18,7 @@ export default {
       babel(babelrc()),
     // @endif
 
-    // @if CODE_COVERAGE
+    // @if ISTANBUL_CODE_COVERAGE
       istanbul({
           exclude: ['test/**/*', 'node_modules/**/*']
       })
