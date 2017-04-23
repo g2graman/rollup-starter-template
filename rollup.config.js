@@ -7,7 +7,6 @@ import babelrc from 'babelrc-rollup';
 import istanbul from 'rollup-plugin-istanbul';
 // @endif
 
-
 let pkg = require('./package.json');
 let external = Object.keys(pkg.dependencies);
 
@@ -25,17 +24,14 @@ export default {
     // @endif
   ],
   external: external,
-  targets: [
-    {
+  targets: [{
       dest: pkg.main,
       format: 'umd',
       moduleName: 'rollupStarterProject',
       sourceMap: true
-    },
-    {
+    }, {
       dest: pkg.module,
       format: 'es',
       sourceMap: true
-    }
-  ]
+    }]
 };
