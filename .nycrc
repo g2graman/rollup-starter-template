@@ -1,0 +1,14 @@
+{
+  "exclude": [
+    "**/test/**/*.js",
+    "rollup.config.js",
+    "node_modules",
+    "dist"
+  ],
+  "require": [
+    "babel-core/register"
+  ],
+  "sourceMap": true,
+  "instrument": true,
+  "cache": true
+}

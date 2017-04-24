@@ -29,7 +29,6 @@ export default {
 
     // @if NYC_CODE_COVERAGE
       istanbul({
-        exclude: ['test/**/*', 'node_modules/**/*'],
         instrumenter: {
           Instrumenter: NycIstanbulInstrumenterCreator.createInstrumenter
         }
