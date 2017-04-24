@@ -16,7 +16,6 @@ const nyc = new NYC();
 const NycIstanbulInstrumenterCreator = new nyc._instrumenterLib.istanbul();
 // @endif
 
-
 let pkg = require('./package.json');
 let external = Object.keys(pkg.dependencies);
 
@@ -51,5 +50,5 @@ export default {
       dest: pkg.module,
       format: 'es',
       sourceMap: true
-    }]
+  }]
 };
