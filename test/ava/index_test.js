@@ -1,6 +1,7 @@
-import { multiply } from '../../dist/rollup-starter-project';
-
 import test from 'ava-spec';
+import 'babel-core/register';
+
+import { multiply } from '../../dist/rollup-starter-project';
 
 test.group('multiply', () => {
   test('returns 0 when either argument is 0', t => {

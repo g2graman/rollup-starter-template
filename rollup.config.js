@@ -4,8 +4,18 @@ import babelrc from 'babelrc-rollup';
 // @endif
 
 // @if ISTANBUL_CODE_COVERAGE
-import istanbul from 'rollup-plugin-istanbul';
+// import istanbul from 'rollup-plugin-istanbul';
 // @endif
+
+// @if NYC_CODE_COVERAGE
+import istanbul from 'rollup-plugin-istanbul';
+
+import NYC from 'nyc';
+
+const nyc = new NYC();
+const NycIstanbulInstrumenterCreator = new nyc._instrumenterLib.istanbul();
+// @endif
+
 
 let pkg = require('./package.json');
 let external = Object.keys(pkg.dependencies);
@@ -17,10 +27,19 @@ export default {
       babel(babelrc()),
     // @endif
 
+    // @if NYC_CODE_COVERAGE
+      istanbul({
+        exclude: ['test/**/*', 'node_modules/**/*'],
+        instrumenter: {
+          Instrumenter: NycIstanbulInstrumenterCreator.createInstrumenter
+        }
+      }),
+    // @endif
+
     // @if ISTANBUL_CODE_COVERAGE
       istanbul({
           exclude: ['test/**/*', 'node_modules/**/*']
-      })
+      }),
     // @endif
   ],
   external: external,
