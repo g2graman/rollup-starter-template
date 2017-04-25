@@ -8,7 +8,7 @@
   "scripts": {
     "prebuild": "eslint lib test",
     "build": "BABEL_ENV=production NODE_ENV=production rollup -c",
-    "watch": "rollup -c -w",
+    "watch": "BABEL_ENV=dev NODE_ENV=dev rollup -c -w",
     "pre:test": "npm run build",
     "test:ava": "npm run pre:test && ava test/ava",
     "test:mocha": "npm run pre:test && mocha test/mocha",
