@@ -5,11 +5,11 @@ const babelPlugin = require('rollup-plugin-babel');
 const babelrc = require('babelrc-rollup').default;
 // @endif
 
-// @if ISTANBUL_CODE_COVERAGE
+// @if CODE_COVERAGE_ISTANBUL_FLAG
 import istanbul from 'rollup-plugin-istanbul';
 // @endif
 
-// @if NYC_CODE_COVERAGE
+// @if CODE_COVERAGE_NYC_FLAG
 const istanbul = require('rollup-plugin-istanbul');
 
 const NYC = require('nyc');
@@ -28,7 +28,7 @@ module.exports = {
     babelPlugin(babelrc()),
     // @endif
 
-    // @if NYC_CODE_COVERAGE
+    // @if CODE_COVERAGE_NYC_FLAG
     istanbul({
       instrumenter: {
         Instrumenter: NycIstanbulInstrumenterCreator.createInstrumenter
@@ -36,7 +36,7 @@ module.exports = {
     }),
     // @endif
 
-    // @if ISTANBUL_CODE_COVERAGE
+    // @if CODE_COVERAGE_ISTANBUL_FLAG
     istanbul({
       exclude: ['test/**/*', 'node_modules/**/*']
     }),
